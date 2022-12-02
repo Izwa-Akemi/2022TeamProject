@@ -26,8 +26,8 @@
 <div id="container">
     <div id="form_wrap">
         <form th:action="@{/login}" method="post">
-            username:<input type="text" name="username"/><br><br>
-            password:<input type="text" name="password"/><br><br>
+            username: <input type="text" name="username"/><br><br>
+            password: <input type="text" name="password"/><br><br>
             <input type="submit" value="login"><br>
             <label style="color: orangered" th:text="${msg}"></label>
         </form>
