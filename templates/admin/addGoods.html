@@ -3,39 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <title>商品登録</title>
-  <style>
-    *{
-      margin: 0;
-      padding: 0;
-    }
-    #container{
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      justify-content:center;
-      align-content: center;
-    }
-    #form_wrap{
-      height: 500px;
-      width: 350px;
-      margin: 50px;
-    }
-  </style>
+  <link rel="stylesheet" href="../../static/css/addGoods.css">
+
 </head>
 <body>
 <div id="container">
   <div id="form_wrap">
-    <p>商品登録</p>
     <form th:action="@{/item/add}" method="post">
-      goods name: <input type="text" name="goodsname"/><br><br>
-      category: <select name="dress"/><br><br>
-      image: <input type="submit" value="upload"><br><br>
-      price: <input type="text" name="price"/><br><br>
-      description: <input type="text" name="desc"/><br><br>
+      <h1 class="title">商品登録</h1>
+      <hr>
+      <div class="input-group">
+        <label for="goodsName">商品名</label>
+        <input id="goodsName" type="text" required></input>
+      </div>
+      <div class="input-group">
+        <label for="categoryName">商品名</label>
+        <select id="categoryName" name="categoryName">
+          <option value="dress">スカート</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="image">商品の画像</label>
+        <button id="image" required>画像を選択</button>
+      </div>
+      <div class="input-group">
+        <label for="price">価格</label>
+        <input id="price" type="text" required></input>
+      </div>
+      <div class="input-group">
+        <label for="desc">商品の説明</label>
+        <input id="desc" type="text" required></input>
+      </div>
+      <div class="input-group">
+        <input type="submit" value="キャンセル"><br>
+        <input type="submit" value="登録"><br>
+      </div>
 
-      <input type="submit" value="cancel"><br>
-      <input type="submit" value="add"><br>
-      <label style="color: orangered" th:text="${msg}"></label>
     </form>
   </div>
 </div>
