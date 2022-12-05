@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order succeed</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/head.css">
+</head>
+
+<body>
+    <header>
+        <div id="icon-logo-back">
+            <a th:href="@{/home}">
+                <span class="title" id="cite-title">Logo</span>
+            </a>
+        </div>
+        <div id="header-links">
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/register}">Register</a>
+        </div>
+    </header>
+    <div class="m-hd">
+        <div class="m-title">
+            <div class="m-t">注文完成 </div>
+        </div>
+    </div>
+
+    <div class="m-bd">
+        <div class="item-b">
+            <div class="item-a-t">
+                <h3>商品名AAA</h3>
+            </div>
+            <div class="item-a-img">
+                <img src="/img/img1.jpg">
+            </div>
+            <div class="item-a-type">
+                <p>商品種類</p>
+            </div>
+            <div class="item-a-num">
+                <p>x<a>1</a></p>
+            </div>
+            <div class="item-a-p">
+                <h4><a>xxx</a>円</h4>
+            </div>
+        </div>
+
+        <div class="item-b">
+            <div class="item-a-t">
+                <h3>商品名BBB</h3>
+            </div>
+            <div class="item-a-img">
+                <img src="/img/img2.jpg">
+            </div>
+            <div class="item-a-type">
+                <p>商品種類</p>
+            </div>
+            <div class="item-a-num">
+                <p>x<a>1</a></p>
+            </div>
+            <div class="item-a-p">
+                <h4><a>xxx</a>円</h4>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="m-e">
+        <div class="date">
+            <p>注文日：xxxx年xx月xx日</p>
+        </div>
+        <div>
+            <h3> ご注文ありがとうございます。</h3>
+        </div>
+    </div>
+    <div>
+        <div class="m-b">
+            <a href="cart.html">
+                <div class="p-bu">ショッピングを続ける</div>
+            </a>
+        </div>
+        <!-- <input class="submit-button" type="submit" value="支払方法"></input> -->
+    </div>
+</body>
+
+</html>

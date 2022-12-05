@@ -25,6 +25,7 @@ header > * {
 .m-title > * {
   position: absolute;
   font-size: 20px;
+  text-align: center;
 }
 .cart-b {
   right: 25px;
@@ -34,3 +35,11 @@ header > * {
   position:static;
   height: 50px;
 }
+.m-title .m-t{
+  position: relative;
+    left:  200px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    width: 400px;
+  }
