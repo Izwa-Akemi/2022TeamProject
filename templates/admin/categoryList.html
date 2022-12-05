@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../static/css/nav-bar.css">
+  <link rel="stylesheet" href="../../static/css/goodsList.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div>
+  <div class="nav-bar">
+    <img src="../../static/img/nav-logo.jpg" class="nav-img"/>
+    <!--        <span>EC site</span>-->
+    <div class="nav-right">
+      <span class="material-icons" id="user-icon">perm_identity</span>
+    </div>
+  </div>
+
+  <div class="body-box">
+    <div class="panel panel-warning">
+      <!-- Default panel contents -->
+      <div class="panel-heading">カテゴリー一覧
+      <button>登録</button>
+      </div>
+      <!-- Table -->
+      <table class="table">
+        <tr>
+          <th>カテゴリー</th>
+          <th>商品量</th>
+          <th>操作する</th>
+        </tr>
+        <tr>
+          <td>パンツ</td>
+          <td>24</td>
+          <td>
+            <button>編集</button>
+            <button>削除</button>
+          </td>
+        </tr>
+        <tr>
+          <td>コート</td>
+          <td>30</td>
+          <td>
+            <button>編集</button>
+            <button>削除</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
