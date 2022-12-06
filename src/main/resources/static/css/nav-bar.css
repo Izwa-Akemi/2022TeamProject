@@ -32,6 +32,14 @@ body {
     justify-content: space-between;
     margin-right: 30px;
 }
+.nav-right-box2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nav-right-icon {
+    margin: 0 10px;
+}
 #search-goods {
     height: fit-content;
     width: auto;
