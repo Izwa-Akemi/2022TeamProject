@@ -1,0 +1,36 @@
+
+header {
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    /* position: fixed; */
+    width: 100%;
+    height: 50px;
+    top: 0;
+    border-bottom: 3px solid rgb(173, 223, 232);
+    z-index: 2;
+    transition: opacity 0.5s;
+  }
+  a + a {
+    margin-left: 10px;
+}
+#header-links {
+  right: 15px;
+  line-height: 50px;
+}
+header > * {
+  position: absolute;
+  height: 50px;
+  font-size: 20px;
+}
+.m-title > * {
+  position: absolute;
+  font-size: 20px;
+}
+.cart-b {
+  right: 25px;
+  line-height: 50px;
+}
+.m-hd{
+  position:static;
+  height: 50px;
+}
