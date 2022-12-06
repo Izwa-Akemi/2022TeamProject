@@ -36,7 +36,7 @@ header > * {
   height: 50px;
 }
 .m-title .m-t{
-  position: relative;
+  /* position: relative; */
     left:  200px;
     text-align: center;
     font-weight: bold;
