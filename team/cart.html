@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cart</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="css/head.css">
+</head>
+<body>
+  <header>
+      <div id="icon-logo-back">
+        <a th:href="@{/home}">
+          <span  class="title" id="cite-title">Logo</span>
+        </a>
+      </div>  
+      <div id="header-links">
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/register}">Register</a>
+      </div>
+  </header>
+  
+  <div class="cart-body">
+   
+    <div class="m-hd">
+        
+     <div class="m-title">
+       <div class="cart-t">Cart</div>
+       <div class="cart-b">
+          <button>お気に入り</button>
+          <button>レジに進む</button>
+       </div>  
+     </div>
+   
+    </div>
+    <div class="m-bd">
+        <div class="item-a">
+            <div class="item-a-t">
+                <p>商品名</p>
+            </div>
+            <div class="item-a-type">
+                <p>商品名</p>
+            </div>
+        </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
