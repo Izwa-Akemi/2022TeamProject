@@ -25,9 +25,9 @@ public class UserEntity {
 	@Column(name="username")
 	private String userName;
 	
-//	@NonNull
-//	@Column(name="user_email")
-//	private String userEmail;
+	@NonNull
+	@Column(name="user_email")
+	private String userEmail;
 
 	@NonNull
 	@Column(name="password")
