@@ -1,6 +1,6 @@
 package shopping.example.controllers;
 
-import shopping.example.services.AdminAccountService;
+import shopping.example.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,20 +9,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("admin")
 public class AdminLoginController {
     @Autowired
-    AdminAccountService adminAccountService;
+    AdminService adminService;
 
-    @PostMapping("/login")
+    @PostMapping("/admin/login")
     public ModelAndView login(String username,
                               @RequestParam String password,
                               ModelAndView mav) {
-        if (adminAccountService.validateAdminAccount(username,password)){
+        if (adminService.validateAdminAccount(username,password)){
             mav.addObject("name",username);
-            mav.setViewName("goodsList.html");
+            mav.setViewName("admin_goodsList.html");
         } else {
-            mav.setViewName("login.html");
+            mav.setViewName("admin_login.html");
         }
         return mav;
     }
