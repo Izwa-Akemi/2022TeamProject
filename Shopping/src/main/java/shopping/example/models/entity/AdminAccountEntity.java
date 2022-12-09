@@ -13,7 +13,7 @@ public class AdminAccountEntity {
     @Column(name = "admin_name")
 
     private String username;
-
+    @Column(name = "password")
     private String password;
 
     public AdminAccountEntity(String username, String password) {
