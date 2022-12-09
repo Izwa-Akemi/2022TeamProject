@@ -1,6 +1,8 @@
 package shopping.example.models.entity;
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "admin")
 public class AdminAccountEntity {
@@ -17,6 +19,11 @@ public class AdminAccountEntity {
     public AdminAccountEntity(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+
+    public AdminAccountEntity() {
+
     }
 
     public Long getId() {
