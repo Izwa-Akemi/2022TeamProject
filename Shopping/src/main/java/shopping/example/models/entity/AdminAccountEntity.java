@@ -21,6 +21,7 @@ public class AdminAccountEntity {
         this.password = password;
     }
 
+
     public AdminAccountEntity() {
 
     }
