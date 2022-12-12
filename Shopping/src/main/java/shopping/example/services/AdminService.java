@@ -2,7 +2,7 @@ package shopping.example.services;
 
 import shopping.example.models.dao.AdminDao;
 import shopping.example.models.entity.AdminAccountEntity;
-import shopping.example.repositories.AdminAccountRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
