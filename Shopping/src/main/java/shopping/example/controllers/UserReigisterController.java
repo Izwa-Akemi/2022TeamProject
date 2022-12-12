@@ -22,9 +22,9 @@ public class UserReigisterController {
 	}
 	
 	@PostMapping("/register")
-	public ModelAndView register(@RequestParam String username,@RequestParam String email,
+	public ModelAndView register(@RequestParam String userName,@RequestParam String userEmail,
 			@RequestParam String password, ModelAndView mav) {
-		if (userService.createAccount(username,email,password)) {
+		if (userService.createAccount(userName,userEmail,password)) {
 			mav.addObject("error", false);
 			mav.setViewName("login.html");
 		} else {
