@@ -14,7 +14,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="user")
+@Table(name="users")
 public class UserEntity {
 	
 	public UserEntity(@NonNull String userName, @NonNull String userEmail, @NonNull String password) {
