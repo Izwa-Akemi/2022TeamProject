@@ -13,13 +13,21 @@ import lombok.*;
 @Entity
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
-@Table(name="user")
+@AllArgsConstructor
+@Table(name="users")
 public class UserEntity {
+	
+	public UserEntity(@NonNull String userName, @NonNull String userEmail, @NonNull String password) {
+		this.userName = userName;
+		this.userEmail = userEmail;
+		this.password = password;
+	}
+
+
 	@Id
 	@Column(name="user_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer userId;
+	private Long userId;
 
 	@NonNull
 	@Column(name="user_name")
