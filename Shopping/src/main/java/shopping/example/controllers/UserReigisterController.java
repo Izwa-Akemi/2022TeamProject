@@ -9,30 +9,27 @@ import org.springframework.web.servlet.ModelAndView;
 
 import shopping.example.services.UserService;
 
-
-
 @Controller
-public class UserLoginController {
+public class UserReigisterController {
 	@Autowired
 	private UserService userService;
 
-	
-	@GetMapping("/login")
-	public ModelAndView getLoginPage(ModelAndView mav) {
+	@GetMapping("/register")
+	public ModelAndView getRegisterPage(ModelAndView mav) {
 		mav.addObject("error", false);
-		mav.setViewName("login.html");
+		mav.setViewName("register.html");
 		return mav;
 	}
 	
-	@PostMapping("/login")
-	public ModelAndView login(@RequestParam String username,
+	@PostMapping("/register")
+	public ModelAndView register(@RequestParam String userName,@RequestParam String userEmail,
 			@RequestParam String password, ModelAndView mav) {
-		if (userService.validateAccount(username,password)) {
-			mav.addObject("name", username);
-			mav.setViewName("homepage.html");
+		if (userService.createAccount(userName,userEmail,password)) {
+			mav.addObject("error", false);
+			mav.setViewName("login.html");
 		} else {
 			mav.addObject("error", true);
-			mav.setViewName("login.html");
+			mav.setViewName("register.html");
 		}
 		return mav;
 	}

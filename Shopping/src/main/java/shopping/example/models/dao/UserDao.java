@@ -9,7 +9,7 @@ import shopping.example.models.entity.UserEntity;
 
 
 @Repository
-public interface UserDao extends JpaRepository<UserEntity, Integer> {
+public interface UserDao extends JpaRepository<UserEntity, Long> {
 	List<UserEntity> findByUserNameAndPassword(String username, String password);
 	UserEntity findByUserName(String username);
 	UserEntity save(UserEntity userEntity);
