@@ -28,14 +28,14 @@ public class UserService {
 		}
 	}
 	
-//	public boolean validateAccount(String username, String password) { 
-//		UserEntity account = userDao.findByUserName(username);
-//		if (account == null || !account.getPassword().equals(password)) {
-//			return false;
-//		} else {
-//			return true;
-//		}
-//	}
+	public boolean validateAccount(String username, String password) { 
+		UserEntity account = userDao.findByUserName(username);
+		if (account == null || !account.getPassword().equals(password)) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 	
 
     //ユーザの一覧を取得する
