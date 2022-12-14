@@ -19,7 +19,7 @@ import shopping.example.services.ItemService;
 import shopping.example.services.UserService;
 
 @Controller
-public class ItemContorller {
+public class ItemController {
 	@Autowired
 	private UserService userService;
 	
@@ -38,7 +38,7 @@ public class ItemContorller {
 	
 	@GetMapping("/item/add")
 	public String addItem(){
-		return "/admin/addGoods.html";
+		return "/admin/addGoods1.html";
 	}
 	
 	@PostMapping("/item/addItem")
