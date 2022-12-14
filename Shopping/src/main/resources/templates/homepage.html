@@ -5,21 +5,20 @@
 	<meta charset="utf-8">
 	<title>Home</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../../static/css/nav-bar.css">
-	<link rel="stylesheet" href="../static/css/homepage.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-		crossorigin="anonymous"></script>
-
+	<link rel="stylesheet" href="./css/admin/nav-bar.css">
+	<link rel="stylesheet" href="./css/admin/homepage.css">
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+	
 </head>
 
 <body>
 	<div>
 		<div class="nav-bar">
-			<img src="../../static/img/nav-logo.jpg" class="nav-img" />
+			<img th:src="@{./img/admin/nav-logo.jpg}"  class="nav-img" />
 			<!--        <span>EC site</span>-->
 			<div class="nav-right">
 				<select class="nav-select">
@@ -41,40 +40,45 @@
 		<div class="body-box">
 			<h3>商品一覧</h3>
 			<div class="row">
-				<a class="box-item" th:each="item:${itemList}">
+				<a class="box-item" th:href="'/item/'+${item.itemId}" th:each="item:${itemList}">
 					<div class="col-md-2 box-item">
 						<img th:src="@{./img/item-image/{items}(items=${item.image})}" class="item-img">
-						<span th:text=" ${item.itemName}" name="itemName">Dress</span>
-						<span th:text=" ${item.price}" name="price">￥1399</span>
+						<div class="item-name">
+							<span th:text=" ${item.itemName}" name="itemName"> </span>
+						</div>
+						<div class="price">
+							<div>￥<span  class="item-name" th:text=" ${item.price}" name="price">0</span></div>
+						</div>
+
 					</div>
 				</a>
 				<div class="col-md-2 box-item">
-					<img src="../static/img/skirt2.png" class="item-img">
+					<img th:src="@{./img/admin/skirt2.png}" class="item-img">
 					<span>Dress</span>
 					<span>￥1399</span>
 				</div>
 				<div class="col-md-2 box-item">
-					<img src="../static/img/skirt2.png" class="item-img">
+					<img th:src="@{./img/admin/skirt2.png}" class="item-img">
 					<span>Dress</span>
 					<span>￥1399</span>
 				</div>
 				<div class="col-md-2 box-item">
-					<img src="../static/img/skirt2.png" class="item-img">
+					<img th:src="@{./img/admin/skirt2.png}" class="item-img">
 					<span>Dress</span>
 					<span>￥1399</span>
 				</div>
 				<div class="col-md-2 box-item">
-					<img src="../static/img/skirt.png" class="item-img">
+					<img th:src="@{./img/admin/skirt2.png}" class="item-img">
 					<span>Dress</span>
 					<span>￥1399</span>
 				</div>
 				<div class="col-md-2 box-item">
-					<img src="../static/img/skirt.png" class="item-img">
+					<img th:src="@{./img/admin/skirt2.png}" class="item-img">
 					<span>Dress</span>
 					<span>￥1399</span>
 				</div>
 				<div class="col-md-2 box-item">
-					<img src="../static/img/skirt.png" class="item-img">
+					<img th:src="@{./img/admin/skirt2.png}" class="item-img">
 					<span>Dress</span>
 					<span>￥1399</span>
 				</div>

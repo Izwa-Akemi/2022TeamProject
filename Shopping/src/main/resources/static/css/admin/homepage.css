@@ -13,3 +13,7 @@
     padding: 10px;
     margin-top: 20px;
 }
+.item-name{
+	 width: 200px;
+	 box-sizing:content-box;
+}
