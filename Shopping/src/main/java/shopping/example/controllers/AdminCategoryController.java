@@ -5,14 +5,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 @RequestMapping("/admin")
-public class AdminGoodsController {
+public class AdminCategoryController {
     private static final Logger log = LoggerFactory.getLogger(AdminGoodsController.class);
 
-    @RequestMapping("goods")
+    @RequestMapping("category")
     public String goodsLists(){
-        log.debug("view goods list");
-        return "admin_itemsList";
+        log.debug("view category list");
+        return "admin_categoryList";
     }
 }
