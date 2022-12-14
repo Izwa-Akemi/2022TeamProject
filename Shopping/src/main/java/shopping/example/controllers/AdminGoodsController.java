@@ -13,6 +13,6 @@ public class AdminGoodsController {
     @RequestMapping("goods")
     public String goodsLists(){
         log.debug("view goods list");
-        return "admin_goodsList";
+        return "admin_itemsList";
     }
 }

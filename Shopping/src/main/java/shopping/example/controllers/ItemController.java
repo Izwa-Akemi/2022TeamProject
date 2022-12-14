@@ -12,7 +12,7 @@ import shopping.example.services.ItemService;
 import shopping.example.services.UserService;
 
 @Controller
-public class ItemContorller {
+public class ItemController {
 	@Autowired
 	private UserService userService;
 	
