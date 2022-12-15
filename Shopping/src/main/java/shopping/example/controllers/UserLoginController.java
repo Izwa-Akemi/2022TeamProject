@@ -25,11 +25,11 @@ public class UserLoginController {
 	}
 	
 	@PostMapping("/login")
-	public ModelAndView login(@RequestParam String username,@RequestParam String email,
+	public ModelAndView login(@RequestParam String username,
 			@RequestParam String password, ModelAndView mav) {
-		if (userService.createAccount(username,email,password)) {
+		if (userService.validateAccount(username,password)) {
 			mav.addObject("name", username);
-			mav.setViewName("blog.html");
+			mav.setViewName("homepage.html");
 		} else {
 			mav.addObject("error", true);
 			mav.setViewName("login.html");

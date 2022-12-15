@@ -19,7 +19,7 @@ public class AdminLoginController {
                               ModelAndView mav) {
         if (adminService.validateAdminAccount(username,password)){
             mav.addObject("name",username);
-            mav.setViewName("admin_goodsList.html");
+            mav.setViewName("admin_itemsList.html");
         } else {
             mav.setViewName("admin_login.html");
         }

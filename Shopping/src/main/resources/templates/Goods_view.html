@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>商品登録</title>
+	<link rel="stylesheet" href="../../static/css/addGoods.css">
+
+</head>
+
+<body>
+	<div id="container">
+		<div id="form_wrap">
+			<hr>
+			<div class="input-group">
+				<div class="des-itle">
+					<h1 th:text=" ${items.itemName}" name="itemName"> </h1>
+				</div>
+			</div>
+			<div class="input-group">
+				<label for="categoryName">商品種類</label>
+				<select id="categoryName" name="categoryName">
+					<option value="dress">スカート</option>
+				</select>
+			</div>
+			<div class="input-group">
+				<div class="img">
+					<img th:src="@{../../img/item-image/{items}(items=${items.image})}">
+				</div>
+
+			</div>
+			<div class="input-group">
+				<label or="desc">価格</label>
+				<div class="des-itle">
+					<h2 th:text=" ${items.price}" name="price"> </h2>
+				</div>
+			</div>
+			<div class="input-group">
+				<label or="desc">商品の説明</label>
+				<div class="des-itle">
+					<p th:text=" ${items.detail}" name="detail"> </p>
+				</div>
+			</div>
+			<button>カートに入れる</button>
+
+
+		</div>
+	</div>
+</body>
+
+</html>
