@@ -26,4 +26,15 @@ public class AdminLoginController {
         return mav;
     }
 
+    @PostMapping("/admin/logout")
+    public ModelAndView logout(String username,
+                              @RequestParam String password,
+                              ModelAndView mav) {
+        if (adminService.validateAdminAccount(username,password)){
+            mav.addObject("name",username);
+            mav.setViewName("admin_login.html");
+        }
+        return mav;
+    }
+
 }

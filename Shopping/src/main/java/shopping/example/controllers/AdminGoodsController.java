@@ -15,4 +15,10 @@ public class AdminGoodsController {
         log.debug("view goods list");
         return "admin_itemsList";
     }
+
+    @RequestMapping("stock/list")
+    public String stockLists(){
+        log.debug("view stock list");
+        return "admin_stockList";
+    }
 }
