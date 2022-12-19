@@ -25,14 +25,9 @@ public class AdminCategoryController {
     }
 
     @PostMapping("/category/edit")
-    public String editCategory(){
+    public String editCategory() {
         log.debug("edit category");
         return "admin_editCategory.html";
-        
-    @RequestMapping("category")
-    public String goodsLists(){
-        log.debug("view category list");
-        return "admin_categoryList";
-
     }
+
 }
