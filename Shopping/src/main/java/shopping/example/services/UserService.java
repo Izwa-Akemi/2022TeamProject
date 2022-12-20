@@ -11,7 +11,7 @@ import shopping.example.models.entity.UserEntity;
 
 
 @Service
-public class UserService {
+public class  UserService {
 	@Autowired
 	private UserDao userDao;
 	  //ユーザの情報を保存する

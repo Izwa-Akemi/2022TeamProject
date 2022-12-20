@@ -37,17 +37,9 @@
             <th>商品量</th>
             <th>操作する</th>
           </tr>
-          <tr>
-            <td>パンツ</td>
-            <td>24</td>
-            <td>
-              <button>編集</button>
-              <button>削除</button>
-            </td>
-          </tr>
-          <tr>
-            <td>コート</td>
-            <td>30</td>
+          <tr th:each="c:${cateList}">
+            <td th:text="${c.name}"></td>
+            <td th:text="${c.itemsCount}"></td>
             <td>
               <button>編集</button>
               <button>削除</button>
