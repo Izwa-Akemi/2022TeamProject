@@ -37,9 +37,9 @@ public class AdminLoginController {
             }
         }catch (Exception e){
             e.printStackTrace();
-            return "admin_login";
+            return "admin_login.html";
         }
-        return "admin_itemsList";
+        return "admin_itemsList.html";
     }
 
 }

@@ -9,37 +9,44 @@
 <body>
 <div id="container">
   <div id="form_wrap">
-    <form th:action="@{/item/add}" method="post">
+    <form th:action="@{/admin/item/addItem}" method="post" enctype="multipart/form-data">
       <h1 class="title">商品登録</h1>
       <hr>
       <div class="input-group">
         <label for="goodsName">商品名</label>
-        <input id="goodsName" type="text" required></input>
+        <input id="goodsName" name="goodsName" type="text" required></input>
       </div>
       <div class="input-group">
-        <label for="categoryName">商品名</label>
-        <select id="categoryName" name="categoryName">
-          <option value="dress">スカート</option>
+        <label for="categoryName">カテゴリー名</label>
+        <select class="nav-select" name="category" id="categoryName">
+          <option value="">選んでください</option>
+          <option th:each="item:${categoryList}"
+                  th:value="${item.cateId}" th:text="${item.categoryName}">
+          </option>
         </select>
       </div>
       <div class="input-group">
         <label for="image">商品の画像</label>
-        <button id="image" required>画像を選択</button>
+        <input class="submit-button" type="file" name="image" id="image">
       </div>
       <div class="input-group">
         <label for="price">価格</label>
-        <input id="price" type="text" required></input>
+        <input id="price" name="price" type="text" required></input>
+      </div>
+      <div class="input-group">
+        <label for="stock">在庫</label>
+        <input id="stock" name="stock" type="text" required></input>
       </div>
       <div class="input-group">
         <label for="desc">商品の説明</label>
-        <input id="desc" type="text" required></input>
+        <input id="desc" name="desc" type="text" required></input>
       </div>
       <div class="input-group">
-        <button>キャンセル</button>
-        <button>登録</button>
+        <button type="submit">登録</button>
+        <input type="reset" value="cancel" />
       </div>
-
     </form>
+    <a th:href="@{/admin/item/list}"><button>go back</button></a>
   </div>
 </div>
 </body>

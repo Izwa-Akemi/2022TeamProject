@@ -2,32 +2,34 @@ package shopping.example.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import shopping.example.models.entity.CategoryEntity;
+import shopping.example.services.AdminService;
+
+import java.util.List;
+import java.util.Map;
 
 
 @Controller
 @RequestMapping("/admin")
 public class AdminCategoryController {
+
+    @Autowired
+    AdminService adminService;
     private static final Logger log = LoggerFactory.getLogger(AdminGoodsController.class);
 
-    @RequestMapping("/category/list")
-    public String goodsLists(){
+    @RequestMapping("category")
+    public String categoryLists(Map<String,Object> map, Model model){
         log.debug("view category list");
+        List<CategoryEntity> categoryList = adminService.getAllCategories();
+        map.put("categoryList",categoryList);
+        model.addAttribute("categoryList",categoryList);
+        log.debug("cList:",categoryList);
         return "admin_categoryList.html";
-    }
-
-    @PostMapping("/category/add")
-    public String addCategory(){
-        log.debug("add category");
-        return "admin_addCategory.html";
-    }
-
-    @PostMapping("/category/edit")
-    public String editCategory() {
-        log.debug("edit category");
-        return "admin_editCategory.html";
     }
 
 }
