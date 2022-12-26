@@ -1,0 +1,19 @@
+.box-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 20px;
+}
+.item-img {
+    width: 200px;
+    height: 180px;
+}
+.body-box {
+    padding: 10px;
+    margin-top: 20px;
+}
+.item-name{
+	 width: 200px;
+	 box-sizing:content-box;
+}

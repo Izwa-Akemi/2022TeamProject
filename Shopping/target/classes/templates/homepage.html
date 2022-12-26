@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/admin/nav-bar.css">
+	<link rel="stylesheet" href="./css/admin/homepage.css">
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+	
+</head>
+
+<body>
+	<div>
+		<div class="nav-bar">
+			<img th:src="@{./img/admin/nav-logo.jpg}"  class="nav-img" />
+			<div class="nav-right">
+				<select class="nav-select">
+					<option value="dress">スカート</option>
+				</select>
+				<div class="nav-search">
+					<input id="search-goods" type="text" placeholder="Goods name" required></input>
+					<span class="material-icons">search</span>
+				</div>
+				<div class="nav-right-box2">
+					<span class="material-icons nav-right-icon">favorite</span>
+					<span class="material-icons nav-right-icon">shopping_cart</span>
+					<span class="material-icons nav-right-icon">account_circle</span>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="body-box">
+			<h3>商品一覧</h3>
+			<div class="row">
+				<a class="box-item" th:href="'/item/'+${item.itemId}" th:each="item:${itemList}">
+					<div class="col-md-2 box-item">
+						<img th:src="@{./img/item-image/{items}(items=${item.image})}" class="item-img">
+						<div class="item-name">
+							<span th:text=" ${item.itemName}" name="itemName"> </span>
+						</div>
+						<div class="price">
+							<div>￥<span  class="item-name" th:text=" ${item.price}" name="price">0</span></div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

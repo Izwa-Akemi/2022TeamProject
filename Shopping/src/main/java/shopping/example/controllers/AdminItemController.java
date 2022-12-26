@@ -122,4 +122,11 @@ public class AdminItemController {
         itemService.deletItem(itemId);
         return "redirect:/admin/item/list";
     }
+
+    @RequestMapping("/stock")
+    public String stockListPage(Map<String,Object> map) {
+        List<ItemEntity> itemList = adminService.getAllItems();
+        map.put("itemList",itemList);
+        return "admin_stockList";
+    }
 }

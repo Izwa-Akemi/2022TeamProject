@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>カテゴリー編集</title>
+  <link rel="stylesheet" href="../../static/css/addGoods.css">
+
+</head>
+<body>
+<div id="container">
+  <div id="form_wrap">
+    <form th:action="@{/item/add}" method="post">
+      <h1 class="title">カテゴリー編集</h1>
+      <hr>
+      <div class="input-group">
+        <label for="cateName">カテゴリー名</label>
+        <input id="cateName" type="text" required></input>
+      </div>
+      <div class="input-group">
+        <label for="stockAmount">商品量</label>
+        <input id="stockAmount" type="text" required></input>
+      </div>
+      <div class="input-group">
+        <button>キャンセル</button>
+        <button>編集</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+</body>
+</html>

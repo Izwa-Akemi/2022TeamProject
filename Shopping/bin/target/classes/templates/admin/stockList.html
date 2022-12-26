@@ -28,8 +28,6 @@
         <div class="panel panel-warning">
             <!-- Default panel contents -->
             <div class="panel-heading">在庫一覧</div>
-            <a th:if="${session.password!=null}" th:href="@{/admin/logout}">ログアウト</a>
-            <a th:if="${session.password==null}" th:href="@{/admin/login}">ログイン</a>
             <!-- Table -->
             <table class="table">
                 <tr>
@@ -37,18 +35,29 @@
                     <th>商品画像</th>
                     <th>在庫</th>
                 </tr>
-                <tr th:each="item:${itemList}">
-                    <td th:text="${item.getItemName()}"></td>
-                    <td th:text="${item.getImage()}"><img th:src="@{./img/item-image/{items}(items=${item.image})}"></td>
-                    <td th:text="${item.getStock()}">
-                        <input id="stock" name="stock" type="text"></input>
-                        <input class="submit-button" type="submit" value="Update"></input>
+                <tr>
+                    <td>Dress1</td>
+                    <td>
+                        <img src="../../static/img/skirt.png">
+                    </td>
+                    <td>
+                        <input>
+                        <button>更新</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dress2</td>
+                    <td>
+                        <img src="../../static/img/skirt2.png">
+                    </td>
+                    <td>
+                        <input>
+                        <button>更新</button>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-</div>
 </body>
 
 </html>

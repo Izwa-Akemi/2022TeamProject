@@ -35,15 +35,15 @@
       <table class="table">
         <tr>
           <th>カテゴリー</th>
-          <th>カテゴリーID</th>
+          <th>商品量</th>
           <th>操作する</th>
         </tr>
         <tr th:each="c:${categoryList}">
-          <td th:text="${c.getCategoryName()}"></td>
-          <td th:text="${c.getCateId()}"></td>
+          <td th:text="${c.categoryName}"></td>
+          <td th:text="${c.categoryId}"></td>
           <td>
             <button>編集</button>
-            <a href="javascript:void(0)" th:onclick="|deleteCategory(${c.getCateId()})|">削除</a>
+            <button>削除</button>
           </td>
         </tr>
       </table>
@@ -52,11 +52,3 @@
 </div>
 </body>
 </html>
-<script>
-  function deleteCategory(categoryId){
-    var conf = confirm("ID"+ categoryId+ "のカテゴリーを削除してもよろしいですか?")
-    if(conf){
-      window.location.href = "deleteCategory/"+categoryId;
-    }
-  }
-</script>
