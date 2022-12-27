@@ -45,4 +45,10 @@
     bottom        : 0px; 
     right         : 10px;  
   }
+.m-img div{-moz-border-radius:53px;-webkit-border-radius:53px;border-radius:53px;}
+.m-img img{-moz-border-radius:45px;-webkit-border-radius:45px;border-radius:45px;}
 
+.item-img {
+    width: 200px;
+    height: 180px;
+}

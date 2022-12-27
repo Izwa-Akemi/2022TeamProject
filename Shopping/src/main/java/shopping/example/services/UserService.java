@@ -36,7 +36,17 @@ public class UserService {
 			return true;
 		}
 	}
-	
+	public UserEntity findByUserNameAndPassword(String userName, String password) {
+		//コントローラークラスからuserNameとpasswordと受け取って結果を受け取る
+		List<UserEntity> userList = userDao.findByUserNameAndPassword(userName, password);
+		//もしuserListが空だった場合には、nullを返す処理
+		if(userList.isEmpty()){
+	        return null;
+	    }else{
+	        return userList.get(0);
+	    }
+
+	}
 
     //ユーザの一覧を取得する
 	public List<UserEntity> getAllAccounts() {
