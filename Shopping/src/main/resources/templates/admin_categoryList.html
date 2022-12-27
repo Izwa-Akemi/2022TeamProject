@@ -15,39 +15,48 @@
 </head>
 
 <body>
-  <div>
-    <div class="nav-bar">
-      <img src="../../static/img/nav-logo.jpg" class="nav-img"/>
-      <!--        <span>EC site</span>-->
-      <div class="nav-right">
-        <span class="material-icons" id="user-icon">perm_identity</span>
-      </div>
-    </div>
-
-    <div class="body-box">
-      <div class="panel panel-warning">
-        <!-- Default panel contents -->
-        <div class="panel-heading">カテゴリー一覧
-        <button>登録</button>
-        </div>
-        <!-- Table -->
-        <table class="table">
-          <tr>
-            <th>カテゴリー</th>
-            <th>商品量</th>
-            <th>操作する</th>
-          </tr>
-          <tr th:each="c:${cateList}">
-            <td th:text="${c.name}"></td>
-            <td th:text="${c.itemsCount}"></td>
-            <td>
-              <button>編集</button>
-              <button>削除</button>
-            </td>
-          </tr>
-        </table>
-      </div>
+<div>
+  <div class="nav-bar">
+    <img src="../../static/img/nav-logo.jpg" class="nav-img"/>
+    <!--        <span>EC site</span>-->
+    <div class="nav-right">
+      <a th:if="${session.password!=null}" th:href="@{/admin/logout}">ログアウト</a>
+      <a th:if="${session.password==null}" th:href="@{/admin/login}">ログイン</a>
     </div>
   </div>
+
+  <div class="body-box">
+    <div class="panel panel-warning">
+      <!-- Default panel contents -->
+      <div class="panel-heading">カテゴリー一覧
+        <button>登録</button>
+      </div>
+      <!-- Table -->
+      <table class="table">
+        <tr>
+          <th>カテゴリー</th>
+          <th>カテゴリーID</th>
+          <th>操作する</th>
+        </tr>
+        <tr th:each="c:${categoryList}">
+          <td th:text="${c.getCategoryName()}"></td>
+          <td th:text="${c.getCateId()}"></td>
+          <td>
+            <button>編集</button>
+            <a href="javascript:void(0)" th:onclick="|deleteCategory(${c.getCateId()})|">削除</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 </body>
 </html>
+<script>
+  function deleteCategory(categoryId){
+    var conf = confirm("ID"+ categoryId+ "のカテゴリーを削除してもよろしいですか?")
+    if(conf){
+      window.location.href = "deleteCategory/"+categoryId;
+    }
+  }
+</script>

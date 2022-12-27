@@ -24,5 +24,7 @@ public interface ItemDao extends JpaRepository<ItemEntity, Long> {
 	List<ItemEntity> deleteByItemId(Long itemId);
 
 	// search by category name
-	ItemEntity findByItemName(String itemName);
+	List<ItemEntity> findByItemName(String itemName);
+
+	List<ItemEntity> findByCateId(Long cateId);
 }

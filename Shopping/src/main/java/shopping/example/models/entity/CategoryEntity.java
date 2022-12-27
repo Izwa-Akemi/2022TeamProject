@@ -13,7 +13,7 @@ public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "category_id")
-    private Long categoryId;
+    private Long cateId;
 
     @NonNull
     @Column(name = "category_name")

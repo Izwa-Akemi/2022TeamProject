@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>商品登録</title>
+	<link rel="stylesheet" href="../../static/css/addGoods.css">
+
+</head>
+
+<body>
+	<div id="container">
+		<div id="form_wrap">
+			<form th:action="@{/item/addItem}" method="post" enctype="multipart/form-data">
+				<h1 class="title">商品登録</h1>
+				<hr>
+				<div class="input-group">
+					<label for="goodsName">商品名</label>
+					<input id="goodsName" name="goodsName" type="text" required></input>
+				</div>
+				<div class="input-group">
+					<label for="categoryName">商品種類</label>
+					<select id="categoryName" name="categoryName">
+						<option value="dress">スカート</option>
+					</select>
+				</div>
+				<div class="input-group">
+					<label for="image">商品の画像</label>
+					<input class="submit-button" type="file" name="image" required>
+
+				</div>
+				<div class="input-group">
+					<label for="price">価格</label>
+					<input id="price" name="price" type="text" required></input>
+				</div>
+				<div class="input-group">
+					<label for="desc">商品の説明</label>
+					<input id="desc" name="desc" type="text" required></input>
+				</div>
+				<div class="input-group">
+					<div class="input-group">
+						<label for="stock">商品の個数</label>
+						<input id="stock" name="stock" type="text" required></input>
+					</div>
+					<div class="input-group">
+						<button>キャンセル</button>
+						<div class="d-bu">
+							<input class="submit-button" type="submit" value="→">
+						</div>
+						<button>登録</button>
+					</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

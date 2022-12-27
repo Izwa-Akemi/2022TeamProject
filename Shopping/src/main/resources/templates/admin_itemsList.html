@@ -5,12 +5,16 @@
     <meta charset="utf-8">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/admin/nav-bar.css">
-    <link rel="stylesheet" href="../../static/css/admin/goodsList.css">
+    <!--    todo 样式不显示-->
+    <link rel="stylesheet" th:href="@{../static/css/admin/nav-bar.css}">
+    <link rel="stylesheet" th:href="@{../static/css/admin/goodsList.css}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
 
 </head>
 
@@ -18,62 +22,75 @@
 <div>
     <div class="nav-bar">
         <img src="../../static/img/admin/nav-logo.jpg" class="nav-img"/>
-<!--        <span>EC site</span>-->
-        <div class="nav-right">
-            <select class="nav-select">
-                <option value="dress">スカート</option>
-            </select>
-            <div class="nav-search">
-                <input id="search-goods" type="text" placeholder="Goods name" required></input>
-                <span class="material-icons">search</span>
+        <!--        <span>EC site</span>-->
+        <form th:action="@{/admin/search}" method="post">
+            <div class="nav-right">
+                <select class="nav-select" name="category">
+                    <option value="">選んでください</option>
+                    <option th:each="item:${categoryList}"
+                            th:value="${item.cateId}" th:text="${item.categoryName}">
+                    </option>
+                </select>
+                <input type="submit" value="お問い合わせ">
             </div>
-            <a href="./admin/addGoods1.html"><button class="addGoods-btn">商品登録</button></a>
-            <span class="material-icons" id="user-icon">perm_identity</span>
-        </div>
+        </form>
+        <form th:action="@{/admin/search}" method="post">
+            <div class="nav-search">
+                <input name="itemName" id="search-goods" type="text" placeholder="商品名を入力してください"></input>
+                <input type="submit" value="お問い合わせ">
+            </div>
+        </form>
+        <a th:href="@{/admin/item/add}">
+            <button class="addGoods-btn">商品登録</button>
+        </a>
+        <a th:href="@{/admin/category}">
+            <button class="addGoods-btn">カテゴリー</button>
+        </a>
+        <a th:href="@{/admin/stock}">
+            <button class="addGoods-btn">在庫</button>
+        </a>
+        <a th:if="${session.password!=null}" th:href="@{/admin/logout}">ログアウト</a>
+        <a th:if="${session.password==null}" th:href="@{/admin/login}">ログイン</a>
     </div>
 
     <div class="body-box">
         <h3>商品一覧</h3>
-            <div class="row">
-                <div class="col-md-2 box-item">
-                    <img src="../../static/img/skirt.png" class="item-img">
-                    <span>Dress</span>
-                    <span>￥1399</span>
-                </div>
-                <div class="col-md-2 box-item">
-                    <img src="../../static/img/skirt.png" class="item-img">
-                    <span>Dress</span>
-                    <span>￥1399</span>
-                </div>
-                <div class="col-md-2 box-item">
-                    <img src="../../static/img/skirt.png" class="item-img">
-                    <span>Dress</span>
-                    <span>￥1399</span>
-                </div>
-                <div class="col-md-2 box-item">
-                    <img src="../../static/img/skirt.png" class="item-img">
-                    <span>Dress</span>
-                    <span>￥1399</span>
-                </div>
-                <div class="col-md-2 box-item">
-                    <img src="../../static/img/skirt.png" class="item-img">
-                    <span>Dress</span>
-                    <span>￥1399</span>
-                </div>
-                <div class="col-md-2 box-item">
-                    <img src="../../static/img/skirt.png" class="item-img">
-                    <span>Dress</span>
-                    <span>￥1399</span>
-                </div>
-
-            </div>
-
-
+        <!-- Table -->
+        <table class="table">
+            <tr>
+                <th>商品名</th>
+                <th>price</th>
+                <th>description</th>
+                <th>商品量</th>
+                <th>画像</th>
+                <th>categoryId</th>
+                <th>操作する</th>
+            </tr>
+            <tr th:each="item:${itemList}">
+                <td th:text="${item.getItemName()}"></td>
+                <td th:text="${item.getPrice()}"></td>
+                <td th:text="${item.getDetail()}"></td>
+                <td th:text="${item.getStock()}"></td>
+                <td th:text="${item.getImage()}"><img th:src="@{./img/item-image/{items}(items=${item.image})}"></td>
+                <td th:text="${item.getCateId()}"></td>
+                <td>
+                    <a th:href="@{/admin/item/editItem/{itemId}(itemId=${item.getItemId()})}">編集</a>
+                    <a href="javascript:void(0)" th:onclick="|deleteItem(${item.itemId})|">削除</a>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
-
 
 
 </body>
 
 </html>
+<script>
+    function deleteItem(itemId){
+        var conf = confirm("ID"+ itemId+ "の商品を削除してもよろしいですか?")
+        if(conf){
+            window.location.href = "deleteItem/"+itemId;
+        }
+    }
+</script>
