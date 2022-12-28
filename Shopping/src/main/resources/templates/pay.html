@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pay</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/head.css">
+   	<link rel="stylesheet" th:href="@{/css/head.css}">
+	<link rel="stylesheet" th:href="@{/css/cart.css}">
 </head>
 
 <body>
@@ -18,15 +18,14 @@
             </a>
         </div>
         <div id="header-links">
-            <a th:href="@{/login}">Login</a>
-            <a th:href="@{/register}">Register</a>
+        
         </div>
     </header>
     <form method="post" action="pay">
         <div class="m-hd">
             <div class="m-title">
                 <div class="back">
-                    <a href="order.html">注文内容の確認に戻す</a>
+                    <a th:href="@{/order}">注文内容の確認に戻す</a>
                 </div>
                 <div class="m-t">お支払い方法を選択</div>
             </div>

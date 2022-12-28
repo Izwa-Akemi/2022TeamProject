@@ -93,9 +93,8 @@
 
 			<div class="toolbox-right">
 				<div class="cart-b2">
-					<form action="/order" method="post"><input type="hidden" name="cartId"
-							th:value="${cartId}"><button>購入</button></form>
-					<a href="order.html">
+					
+					<a th:href="@{/order}">
 						<button>レジに進む</button>
 					</a>
 				</div>
