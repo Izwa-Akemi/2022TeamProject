@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Cart</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" th:href="@{/css/head.css}">
+	<link rel="stylesheet" th:href="@{/css/cart.css}">
+
+</head>
+
+<body>
+	<header>
+		<div id="icon-logo-back">
+			<a th:href="@{/homepage}">
+				<span class="title" id="cite-title">Logo</span>
+			</a>
+		</div>
+		<div id="header-links">
+			<a th:href="@{/logout}">logout</a>
+		</div>
+	</header>
+
+	<div class="cart-body">
+		<li class="pc-list__item" th:text="'ようこそ'+${loginUserName}+'さん'"></li>
+		<div class="m-hd">
+
+			<div class="m-title">
+				<div class="cart-t">Cart</div>
+				<div class="cart-b">
+					<a href="fav.html">
+						<button>お気に入り</button>
+					</a>
+					<a href="order.html">
+						<button>レジに進む</button>
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="m-bd">
+			<div class="item-a" th:each="items:${newList}" th:if="${items.num != 0}">
+				<div class="item-a-t">
+					<h3 th:text="${items.itemName}">商品名AAA</h3>
+				</div>
+				<div class="m-img">
+					<div class="img">
+						<img th:src="@{./img/item-image/{item}(item=${items.image})}" class="item-img"  style=" height: 200px;">
+					</div>
+				</div>
+				<div class="item-a-type">
+					<p>type</p>
+				</div>
+				<div class="item-a-p">
+					<h4><a th:text=" ${items.price}">xxx</a>円</h4>
+				</div>
+				<div class="item-a-fav">
+					<a>♡お気に入り</a>
+				</div>
+				<div class="item-a-del">
+					<form action="/delete" method="post">
+						<div class="item-a-num">
+							<input type="hidden" name="itemId" th:value="${items.itemId}">
+							<input type="hidden" name="cartId" th:value="${items.cartId}">
+						</div>
+						<button>削除</button>
+					</form>
+				</div>
+				<form action="/cartchange" method="post">
+					<div class="item-a-num">
+						<input type="text" name="num" th:value="${items.num}">
+						<input type="hidden" name="itemId" th:value="${items.itemId}">
+						<input type="hidden" name="cartId" th:value="${items.cartId}">
+					</div>
+					<button>変更</button>
+				</form>
+			</div>
+
+
+		</div>
+		<div class="m-bd-end"></div>
+
+		<div id="topScroll" class="topIcon">
+			<div class="toolbox-left">
+				<div class="cart-m">
+					<p>小計 (<a>x</a> 個の商品): ￥<a>xxxx</a></p>
+				</div>
+			</div>
+
+			<div class="toolbox-right">
+				<div class="cart-b2">
+					
+					<a th:href="@{/order}">
+						<button>レジに進む</button>
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>

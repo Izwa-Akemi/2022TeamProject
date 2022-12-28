@@ -1,23 +1,18 @@
 package shopping.example.controllers;
 
-
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 
 import shopping.example.models.entity.ItemEntity;
 import shopping.example.services.ItemService;
@@ -31,7 +26,6 @@ public class ItemController {
 	@Autowired
 	ItemService itemService;
 	
-
 	@GetMapping("/homepage")
 	public String getHomePage(Model model) {
 		List<ItemEntity>itemList =itemService.selectByAll();
@@ -42,7 +36,6 @@ public class ItemController {
 	}
 	
 	
-
 	@GetMapping("/item/add")
 	public String addItem(){
 		return "/admin/addGoods1.html";
@@ -73,9 +66,6 @@ public class ItemController {
 		
 		return "Goods_view.html";
 	}
-
-	
-
 	
 	
 }
