@@ -1,45 +1,29 @@
 package shopping.example.controllers;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import shopping.example.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import shopping.example.services.AdminService;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/admin")
 public class AdminLoginController {
     @Autowired
     AdminService adminService;
 
-    private static final Logger log = LoggerFactory.getLogger(AdminGoodsController.class);
-
-    @RequestMapping("login")
-    public String loginPage() {
-        log.debug("view login page");
-        return "admin_login";
-    }
-
-    @PostMapping("/login")
-    public String login(@RequestParam("username") String username,
-                        @RequestParam("password") String password,
-                        Model model) {
-        log.debug("username:{},password:{}", username,password);
-        try {
-            if (adminService.validateAdminAccount(username, password)) {
-                log.debug("validate yes");
-                model.addAttribute("admin_name", username);
-                model.addAttribute("password", password);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-            return "admin_login.html";
+    @PostMapping("/admin/login")
+    public ModelAndView login(String username,
+                              @RequestParam String password,
+                              ModelAndView mav) {
+        if (adminService.validateAdminAccount(username,password)){
+            mav.addObject("name",username);
+            mav.setViewName("admin_goodsList.html");
+        } else {
+            mav.setViewName("admin_login.html");
         }
-        return "admin_itemsList.html";
+        return mav;
     }
 
 }

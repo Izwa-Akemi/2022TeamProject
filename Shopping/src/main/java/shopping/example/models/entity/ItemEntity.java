@@ -35,7 +35,7 @@ public class ItemEntity {
 	@Column(name = "item_name")
 	private String itemName;
 
-	@Column(name = "cate_id")
+	@Column(name = "category_id")
 	private Integer cateId;
 
 	@Column(name = "image")

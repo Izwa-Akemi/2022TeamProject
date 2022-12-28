@@ -23,6 +23,10 @@
 					<option value="dress">スカート</option>
 				</select>
 			</div>
+			<div class="des-itle">
+			<label for="categoryName">商品ID</label>
+					<p th:text=" ${items.itemId}" > </p>
+				</div>
 			<div class="input-group">
 				<div class="img">
 					<img th:src="@{../../img/item-image/{items}(items=${items.image})}">
@@ -41,7 +45,14 @@
 					<p th:text=" ${items.detail}" name="detail"> </p>
 				</div>
 			</div>
-			<button>カートに入れる</button>
+			 <a >
+			 
+             <form method="post" th:action="@{/addcart}">
+			<input type="hidden" name="itemId" th:value="${items.itemId}">
+			<button class="itemId" id="new">カートに入れる</button>
+			</form>
+  
+			</a> 
 
 
 		</div>

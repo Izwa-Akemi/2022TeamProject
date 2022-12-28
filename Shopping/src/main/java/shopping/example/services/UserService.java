@@ -5,13 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import shopping.example.models.dao.UserDao;
 import shopping.example.models.entity.UserEntity;
 
 
 
 @Service
-public class  UserService {
+public class UserService {
 	@Autowired
 	private UserDao userDao;
 	  //ユーザの情報を保存する
@@ -36,8 +37,24 @@ public class  UserService {
 			return true;
 		}
 	}
-	
+	public UserEntity findByUserNameAndPassword(String userName, String password) {
+		//コントローラークラスからuserNameとpasswordと受け取って結果を受け取る
+		List<UserEntity> userList = userDao.findByUserNameAndPassword(userName, password);
+		//もしuserListが空だった場合には、nullを返す処理
+		if(userList.isEmpty()){
+	        return null;
+	    }else{
+	        return userList.get(0);
+	    }
 
+	}
+	//ユーザaddressを保存する
+	public void update(Long userId,String zipCode, String address) {
+		userDao.save(new UserEntity(userId,zipCode,address));
+		 
+	}
+	
+	
     //ユーザの一覧を取得する
 	public List<UserEntity> getAllAccounts() {
 		return userDao.findAll();

@@ -23,6 +23,11 @@ public class UserEntity {
 		this.password = password;
 	}
 
+	public UserEntity(Long userId, String zipCode, String address) {
+		this.userId = userId;
+		this.zipCode = zipCode;
+		this.address = address;
+	}
 
 	@Id
 	@Column(name="user_id")
